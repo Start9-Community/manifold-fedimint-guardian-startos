@@ -34,6 +34,6 @@ verified, tried, and decided belongs in the commit message and the PR body.
 
 ## This repo
 
-- **Don't exclude the live guardian databases from backups in favour of `db_checkpoints`**, as the standalone `fedimint-guardian` package does: upstream supports restoring only a complete data root, and StartOS backs up with the service stopped.
+- **Don't exclude the live guardian databases from backups in favour of `db_checkpoints`**: upstream supports restoring only a complete data root, and StartOS backs up with the service stopped.
 - **Direct iroh paths for more seats come from raising `irohPortCount` in `startos/utils.ts`** — seat ordinals are never reused, so only a package update extends the range.
 - **`/media/startos/volumes/main` in `startos/utils.ts` is the container runtime's mount of the volume**, not the host path seen over SSH; don't "correct" it.
