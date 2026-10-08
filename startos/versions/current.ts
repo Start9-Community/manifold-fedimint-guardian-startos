@@ -1,58 +1,43 @@
 import { IMPOSSIBLE, VersionInfo } from '@start9labs/start-sdk'
 
 export const current = VersionInfo.of({
-  version: '0.1.1:1',
+  version: '0.1.2:0',
   releaseNotes: {
-    en_US: `This release improves reliability and day-to-day operation of Manifold Fedimint Guardian.
+    en_US: `This release improves access to support.
 
-- Added a built-in Health page to help diagnose common setup and connectivity issues without exposing sensitive information.
-- Improved guardian startup so temporary issues with fallback Bitcoin services do not unnecessarily block startup.
-- Fixed authorization updates so newer badge authorizations correctly replace older ones.
+- Added a Support page where you can chat privately with the team about your guardian. A red dot on Support shows unread messages. Note that support will never ask for your recovery phrase, your password or remote access to your machine.
 
-No special upgrade steps are required for normal installations.
+- Small reliability improvements.
 
-- Set Dashboard Password's confirmation says that it signs out every dashboard session and restarts a running service.
-- Bitcoin must be at least 28.4:29, 29.4:16, 30.3:16 or 31.1:16, depending on its major version. Bitcoin Knots (pre-RDTS) 29.3:29 or later also works.`,
-    es_ES: `Esta versión mejora la fiabilidad y el funcionamiento diario de Manifold Fedimint Guardian.
+No special upgrade steps are required for normal installations.`,
+    es_ES: `Esta versión mejora el acceso al soporte.
 
-- Se ha añadido una página de estado integrada para ayudar a diagnosticar problemas comunes de configuración y conectividad sin exponer información sensible.
-- Se ha mejorado el inicio del guardian para que los problemas temporales con los servicios Bitcoin de respaldo no bloqueen innecesariamente el inicio.
-- Se han corregido las actualizaciones de autorización para que las autorizaciones de credenciales más recientes sustituyan correctamente a las anteriores.
+- Se ha añadido una página de Soporte donde puedes hablar en privado con el equipo sobre tu guardian. Un punto rojo en Soporte indica que hay mensajes sin leer. Recuerda que el equipo de soporte nunca te pedirá tu frase de recuperación, tu contraseña ni acceso remoto a tu equipo.
 
-Las instalaciones normales no requieren pasos especiales para actualizar.
+- Pequeñas mejoras de fiabilidad.
 
-- La confirmación de Establecer contraseña del panel indica que cierra todas las sesiones del panel y reinicia el servicio si está en marcha.
-- Bitcoin debe ser al menos la versión 28.4:29, 29.4:16, 30.3:16 o 31.1:16, según su versión principal. También funciona Bitcoin Knots (pre-RDTS) 29.3:29 o posterior.`,
-    de_DE: `Diese Version verbessert die Zuverlässigkeit und den täglichen Betrieb von Manifold Fedimint Guardian.
+Las instalaciones normales no requieren pasos especiales para actualizar.`,
+    de_DE: `Diese Version verbessert den Zugang zum Support.
 
-- Eine integrierte Statusseite hilft dabei, häufige Einrichtungs- und Verbindungsprobleme zu erkennen, ohne vertrauliche Informationen offenzulegen.
-- Der Start des Guardians wurde verbessert, damit vorübergehende Probleme mit Bitcoin-Ersatzdiensten ihn nicht unnötig blockieren.
-- Aktualisierungen von Berechtigungen wurden korrigiert, damit neuere Badge-Berechtigungen ältere korrekt ersetzen.
+- Eine Support-Seite wurde hinzugefügt, auf der du dich privat mit dem Team über deinen Guardian austauschen kannst. Ein roter Punkt bei Support zeigt ungelesene Nachrichten an. Bitte beachte: Der Support wird dich niemals nach deiner Wiederherstellungsphrase, deinem Passwort oder Fernzugriff auf deinen Rechner fragen.
 
-Für normale Installationen sind keine besonderen Schritte beim Upgrade erforderlich.
+- Kleine Verbesserungen der Zuverlässigkeit.
 
-- Die Bestätigung von Dashboard-Passwort festlegen weist darauf hin, dass jede Dashboard-Sitzung abgemeldet und ein laufender Dienst neu gestartet wird.
-- Bitcoin muss je nach Hauptversion mindestens 28.4:29, 29.4:16, 30.3:16 oder 31.1:16 sein. Bitcoin Knots (pre-RDTS) ab 29.3:29 funktioniert ebenfalls.`,
-    pl_PL: `To wydanie poprawia niezawodność i codzienne działanie Manifold Fedimint Guardian.
+Für normale Installationen sind keine besonderen Schritte beim Upgrade erforderlich.`,
+    pl_PL: `To wydanie ułatwia kontakt ze wsparciem.
 
-- Dodano wbudowaną stronę stanu, która pomaga diagnozować typowe problemy z konfiguracją i łącznością bez ujawniania poufnych informacji.
-- Usprawniono uruchamianie guardiana, aby tymczasowe problemy z zapasowymi usługami Bitcoin nie blokowały go niepotrzebnie.
-- Poprawiono aktualizacje autoryzacji, tak aby nowsze autoryzacje poświadczeń prawidłowo zastępowały starsze.
+- Dodano stronę Wsparcie, na której możesz prywatnie porozmawiać z zespołem o swoim guardianie. Czerwona kropka przy Wsparciu oznacza nieprzeczytane wiadomości. Pamiętaj, że zespół wsparcia nigdy nie poprosi o frazę odzyskiwania, hasło ani zdalny dostęp do Twojego komputera.
 
-W przypadku standardowych instalacji aktualizacja nie wymaga dodatkowych czynności.
+- Drobne poprawki niezawodności.
 
-- Potwierdzenie działania Ustaw hasło panelu informuje, że wylogowuje ono wszystkie sesje panelu i ponownie uruchamia działającą usługę.
-- Bitcoin musi być co najmniej w wersji 28.4:29, 29.4:16, 30.3:16 lub 31.1:16, zależnie od wersji głównej. Działa też Bitcoin Knots (pre-RDTS) 29.3:29 lub nowszy.`,
-    fr_FR: `Cette version améliore la fiabilité et le fonctionnement quotidien de Manifold Fedimint Guardian.
+W przypadku standardowych instalacji aktualizacja nie wymaga dodatkowych czynności.`,
+    fr_FR: `Cette version facilite l’accès à l’assistance.
 
-- Ajout d’une page d’état intégrée pour aider à diagnostiquer les problèmes courants de configuration et de connectivité sans exposer d’informations sensibles.
-- Amélioration du démarrage du guardian afin que les problèmes temporaires des services Bitcoin de secours ne le bloquent pas inutilement.
-- Correction des mises à jour d’autorisation afin que les autorisations de badges plus récentes remplacent correctement les anciennes.
+- Ajout d’une page Assistance où vous pouvez discuter en privé avec l’équipe au sujet de votre guardian. Un point rouge sur Assistance indique des messages non lus. L’équipe d’assistance ne vous demandera jamais votre phrase de récupération, votre mot de passe ni un accès à distance à votre machine.
 
-Aucune étape particulière n’est nécessaire pour mettre à jour une installation standard.
+- Petites améliorations de fiabilité.
 
-- La confirmation de Définir le mot de passe du tableau de bord indique qu’elle déconnecte toutes les sessions du tableau de bord et redémarre le service s’il est en cours d’exécution.
-- Bitcoin doit être au moins en version 28.4:29, 29.4:16, 30.3:16 ou 31.1:16, selon sa version majeure. Bitcoin Knots (pre-RDTS) 29.3:29 ou plus récent fonctionne aussi.`,
+Aucune étape particulière n’est nécessaire pour mettre à jour une installation standard.`,
   },
   migrations: {
     up: async ({ effects }) => {},
