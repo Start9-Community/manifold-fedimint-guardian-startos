@@ -1,41 +1,41 @@
 import { IMPOSSIBLE, VersionInfo } from '@start9labs/start-sdk'
 
 export const current = VersionInfo.of({
-  version: '0.1.2:0',
+  version: '0.1.3:0',
   releaseNotes: {
-    en_US: `This release improves access to support.
+    en_US: `This release improves guardian reliability.
 
-- Added a Support page where you can chat privately with the team about your guardian. A red dot on Support shows unread messages. Note that support will never ask for your recovery phrase, your password or remote access to your machine.
-
-- Small reliability improvements.
+- Fixed an issue that could make a guardian stop responding until it was restarted.
+- Fixed restoring from backup when the same guardian identity had run on two machines.
+- Seats waiting for federation setup now show "Awaiting setup" instead of "Unavailable".
 
 No special upgrade steps are required for normal installations.`,
-    es_ES: `Esta versión mejora el acceso al soporte.
+    es_ES: `Esta versión mejora la fiabilidad del guardian.
 
-- Se ha añadido una página de Soporte donde puedes hablar en privado con el equipo sobre tu guardian. Un punto rojo en Soporte indica que hay mensajes sin leer. Recuerda que el equipo de soporte nunca te pedirá tu frase de recuperación, tu contraseña ni acceso remoto a tu equipo.
-
-- Pequeñas mejoras de fiabilidad.
+- Se ha corregido un problema que podía hacer que un guardian dejara de responder hasta reiniciarlo.
+- Se ha corregido la restauración desde copia de seguridad cuando la misma identidad de guardian se había ejecutado en dos máquinas.
+- Los puestos que esperan la configuración de la federación ahora muestran "Awaiting setup" en lugar de "Unavailable".
 
 Las instalaciones normales no requieren pasos especiales para actualizar.`,
-    de_DE: `Diese Version verbessert den Zugang zum Support.
+    de_DE: `Diese Version verbessert die Zuverlässigkeit des Guardians.
 
-- Eine Support-Seite wurde hinzugefügt, auf der du dich privat mit dem Team über deinen Guardian austauschen kannst. Ein roter Punkt bei Support zeigt ungelesene Nachrichten an. Bitte beachte: Der Support wird dich niemals nach deiner Wiederherstellungsphrase, deinem Passwort oder Fernzugriff auf deinen Rechner fragen.
-
-- Kleine Verbesserungen der Zuverlässigkeit.
+- Ein Problem wurde behoben, durch das ein Guardian bis zu einem Neustart nicht mehr reagieren konnte.
+- Die Wiederherstellung aus einer Sicherung wurde behoben, wenn dieselbe Guardian-Identität auf zwei Rechnern lief.
+- Plätze, die auf die Einrichtung der Föderation warten, zeigen jetzt "Awaiting setup" statt "Unavailable".
 
 Für normale Installationen sind keine besonderen Schritte beim Upgrade erforderlich.`,
-    pl_PL: `To wydanie ułatwia kontakt ze wsparciem.
+    pl_PL: `To wydanie poprawia niezawodność guardiana.
 
-- Dodano stronę Wsparcie, na której możesz prywatnie porozmawiać z zespołem o swoim guardianie. Czerwona kropka przy Wsparciu oznacza nieprzeczytane wiadomości. Pamiętaj, że zespół wsparcia nigdy nie poprosi o frazę odzyskiwania, hasło ani zdalny dostęp do Twojego komputera.
-
-- Drobne poprawki niezawodności.
+- Naprawiono problem, przez który guardian mógł przestać odpowiadać aż do ponownego uruchomienia.
+- Naprawiono przywracanie z kopii zapasowej, gdy ta sama tożsamość guardiana działała na dwóch komputerach.
+- Miejsca oczekujące na konfigurację federacji pokazują teraz "Awaiting setup" zamiast "Unavailable".
 
 W przypadku standardowych instalacji aktualizacja nie wymaga dodatkowych czynności.`,
-    fr_FR: `Cette version facilite l’accès à l’assistance.
+    fr_FR: `Cette version améliore la fiabilité du guardian.
 
-- Ajout d’une page Assistance où vous pouvez discuter en privé avec l’équipe au sujet de votre guardian. Un point rouge sur Assistance indique des messages non lus. L’équipe d’assistance ne vous demandera jamais votre phrase de récupération, votre mot de passe ni un accès à distance à votre machine.
-
-- Petites améliorations de fiabilité.
+- Correction d’un problème qui pouvait empêcher un guardian de répondre jusqu’à son redémarrage.
+- Correction de la restauration depuis une sauvegarde lorsque la même identité de guardian avait fonctionné sur deux machines.
+- Les sièges en attente de la configuration de la fédération affichent désormais « Awaiting setup » au lieu de « Unavailable ».
 
 Aucune étape particulière n’est nécessaire pour mettre à jour une installation standard.`,
   },
