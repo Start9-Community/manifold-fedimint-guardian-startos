@@ -1,3 +1,3 @@
 # StartOS and the guardian's user lookup need these files in the minimal Nix image.
-FROM ghcr.io/fedibtc/manifold-fman:3f1bfc6631440fa82b42935f342b63d6e2687b72@sha256:2c41e05da5fad1e693489a14d4bae2f0fab93669937edc3ecf2638e848e2dae3
+FROM ghcr.io/fedibtc/manifold-fman:05b2d21aa70c0a485574e6b5d2a575a2f8077f6b@sha256:82e36cd528debf4815170846dfd4b983191de8e48cc1739ce6dbf075ca8f197e
 COPY assets/etc/ /etc/
