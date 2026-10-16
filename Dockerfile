@@ -1,3 +1,19 @@
 # StartOS and the guardian's user lookup need these files in the minimal Nix image.
-FROM ghcr.io/fedibtc/manifold-fman:05b2d21aa70c0a485574e6b5d2a575a2f8077f6b@sha256:82e36cd528debf4815170846dfd4b983191de8e48cc1739ce6dbf075ca8f197e
+FROM ghcr.io/fedibtc/manifold-fman:99d518ffb4c247fd7616783b9f6b20a9dbc1a739@sha256:404c271c89b1b741fa5bd909d36a9c16d1f6ef48b13ebe3c665a2b9e30b0245f AS upstream
+
+# Re-create the image from one filesystem copy. The upstream Nix layers store
+# absolute paths (`/nix/...`), and start-cli 2.4.0 refuses those when it packs
+# image layers.
+FROM scratch
+COPY --from=upstream / /
 COPY assets/etc/ /etc/
+# StartOS mounts proc, sys and dev into the image root and does not create
+# them. `docker export`, which start-cli 2.3.0 used, added these directories.
+WORKDIR /proc
+WORKDIR /sys
+WORKDIR /dev
+ENV FLEET_MANAGER_DATA_DIR=/data
+ENV SSL_CERT_FILE=/etc/ssl/certs/ca-bundle.crt
+VOLUME ["/data"]
+WORKDIR /data
+ENTRYPOINT ["/usr/local/bin/fleet-manager-entrypoint"]
