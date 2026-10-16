@@ -3,7 +3,7 @@ FROM ghcr.io/fedibtc/manifold-fman:99d518ffb4c247fd7616783b9f6b20a9dbc1a739@sha2
 
 # Re-create the image from one filesystem copy. The upstream Nix layers store
 # absolute paths (`/nix/...`), and start-cli 2.4.0 refuses those when it packs
-# image layers. The config below must match the upstream image config.
+# image layers.
 FROM scratch
 COPY --from=upstream / /
 COPY assets/etc/ /etc/
@@ -13,7 +13,7 @@ WORKDIR /proc
 WORKDIR /sys
 WORKDIR /dev
 ENV FLEET_MANAGER_DATA_DIR=/data
-ENV SSL_CERT_FILE=/nix/store/lvak3rg4jmjvy3rxw0w68ylnd0s2r685-nss-cacert-3.123/etc/ssl/certs/ca-bundle.crt
+ENV SSL_CERT_FILE=/etc/ssl/certs/ca-bundle.crt
 VOLUME ["/data"]
 WORKDIR /data
-ENTRYPOINT ["/nix/store/vwiiykph2kw894nx7nrh5nd8ga2rsacq-fleet-manager-entrypoint/bin/fleet-manager-entrypoint"]
+ENTRYPOINT ["/usr/local/bin/fleet-manager-entrypoint"]
