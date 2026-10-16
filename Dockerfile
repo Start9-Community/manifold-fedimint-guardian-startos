@@ -7,6 +7,11 @@ FROM ghcr.io/fedibtc/manifold-fman:99d518ffb4c247fd7616783b9f6b20a9dbc1a739@sha2
 FROM scratch
 COPY --from=upstream / /
 COPY assets/etc/ /etc/
+# StartOS mounts proc, sys and dev into the image root and does not create
+# them. `docker export`, which start-cli 2.3.0 used, added these directories.
+WORKDIR /proc
+WORKDIR /sys
+WORKDIR /dev
 ENV FLEET_MANAGER_DATA_DIR=/data
 ENV SSL_CERT_FILE=/nix/store/lvak3rg4jmjvy3rxw0w68ylnd0s2r685-nss-cacert-3.123/etc/ssl/certs/ca-bundle.crt
 VOLUME ["/data"]
