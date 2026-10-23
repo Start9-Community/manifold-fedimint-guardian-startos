@@ -1,88 +1,33 @@
 import { IMPOSSIBLE, VersionInfo } from '@start9labs/start-sdk'
 
 export const current = VersionInfo.of({
-  version: '0.1.7:0',
+  version: '0.1.8:0',
   releaseNotes: {
-    en_US: `This release delivers the latest Fedimint update (0.12.0-fedi15) and also lets federation admins change Fedi app settings for their federation.
-
-These app settings include:
-
-- default currency
-- wallet and invoice limits
-- spaces that new members join
-- default group chats
-- the pinned message
-- toggling certain features on/off (stability pool, multispend, invite codes, new members, offline wallet, and onchain deposits.)
-
-A change takes effect when enough guardians in the federation run 0.1.7 or later.
+    en_US: `This release fixes guardian setup. On 0.1.6 and 0.1.7, a new or restored guardian could stay on "Checking whether this host has been approved…" with no way forward. The setup step now shows a "Check status" button in that state.
 
 No special upgrade steps are required for normal installations.
 
-Image commit: 108c8318dab0536b2402206382f3e2c19f27189a. Fedimint: 0.12.0-fedi15.`,
-    es_ES: `Esta versión incluye la última actualización de Fedimint (0.12.0-fedi15) y permite a los administradores de una federación cambiar los ajustes de la aplicación Fedi para su federación.
-
-Estos ajustes incluyen:
-
-- moneda predeterminada
-- límites de la cartera y de las facturas
-- espacios a los que se unen los nuevos miembros
-- chats de grupo predeterminados
-- el mensaje fijado
-- activar o desactivar determinadas funciones (fondo de estabilidad, multispend, códigos de invitación, nuevos miembros, cartera sin conexión y depósitos en cadena)
-
-Un cambio entra en vigor cuando suficientes guardians de la federación ejecutan la versión 0.1.7 o posterior.
+Image commit: 0d1472e844111fd5eed2a7f61d3eda92b74e03f3. Fedimint: 0.12.0-fedi15.`,
+    es_ES: `Esta versión corrige la configuración del guardian. En 0.1.6 y 0.1.7, un guardian nuevo o restaurado podía quedarse en "Comprobando si este host ha sido aprobado…" sin forma de continuar. Ahora el paso de configuración muestra un botón "Check status" en ese estado.
 
 Las instalaciones normales no requieren pasos especiales para actualizar.
 
-Commit de la imagen: 108c8318dab0536b2402206382f3e2c19f27189a. Fedimint: 0.12.0-fedi15.`,
-    de_DE: `Diese Version enthält das neueste Fedimint-Update (0.12.0-fedi15) und ermöglicht es Föderationsadministratoren, die Einstellungen der Fedi-App für ihre Föderation zu ändern.
-
-Diese Einstellungen umfassen:
-
-- Standardwährung
-- Wallet- und Rechnungslimits
-- Räume, denen neue Mitglieder beitreten
-- Standard-Gruppenchats
-- die angeheftete Nachricht
-- das Ein- und Ausschalten bestimmter Funktionen (Stabilitätspool, Multispend, Einladungscodes, neue Mitglieder, Offline-Wallet und Onchain-Einzahlungen)
-
-Eine Änderung wird wirksam, sobald genügend Guardians der Föderation Version 0.1.7 oder neuer ausführen.
+Commit de la imagen: 0d1472e844111fd5eed2a7f61d3eda92b74e03f3. Fedimint: 0.12.0-fedi15.`,
+    de_DE: `Diese Version behebt die Einrichtung des Guardians. Unter 0.1.6 und 0.1.7 konnte ein neuer oder wiederhergestellter Guardian bei „Es wird geprüft, ob dieser Host genehmigt wurde…“ hängen bleiben, ohne weiterzukommen. Der Einrichtungsschritt zeigt in diesem Zustand jetzt die Schaltfläche „Check status“.
 
 Für normale Installationen sind keine besonderen Schritte beim Upgrade erforderlich.
 
-Image-Commit: 108c8318dab0536b2402206382f3e2c19f27189a. Fedimint: 0.12.0-fedi15.`,
-    pl_PL: `To wydanie zawiera najnowszą aktualizację Fedimint (0.12.0-fedi15) i pozwala administratorom federacji zmieniać ustawienia aplikacji Fedi dla swojej federacji.
-
-Te ustawienia obejmują:
-
-- domyślną walutę
-- limity portfela i faktur
-- przestrzenie, do których dołączają nowi członkowie
-- domyślne czaty grupowe
-- przypiętą wiadomość
-- włączanie i wyłączanie wybranych funkcji (pula stabilności, multispend, kody zaproszeń, nowi członkowie, portfel offline i wpłaty onchain)
-
-Zmiana wchodzi w życie, gdy wystarczająca liczba guardianów federacji korzysta z wersji 0.1.7 lub nowszej.
+Image-Commit: 0d1472e844111fd5eed2a7f61d3eda92b74e03f3. Fedimint: 0.12.0-fedi15.`,
+    pl_PL: `To wydanie naprawia konfigurację guardiana. W wersjach 0.1.6 i 0.1.7 nowy lub przywrócony guardian mógł utknąć na komunikacie „Sprawdzanie, czy ten host został zatwierdzony…” bez możliwości przejścia dalej. Krok konfiguracji pokazuje teraz w tym stanie przycisk „Check status”.
 
 W przypadku standardowych instalacji aktualizacja nie wymaga dodatkowych czynności.
 
-Commit obrazu: 108c8318dab0536b2402206382f3e2c19f27189a. Fedimint: 0.12.0-fedi15.`,
-    fr_FR: `Cette version apporte la dernière mise à jour de Fedimint (0.12.0-fedi15) et permet aux administrateurs d’une fédération de modifier les paramètres de l’application Fedi pour leur fédération.
-
-Ces paramètres comprennent :
-
-- la devise par défaut
-- les limites du portefeuille et des factures
-- les espaces que rejoignent les nouveaux membres
-- les discussions de groupe par défaut
-- le message épinglé
-- l’activation ou la désactivation de certaines fonctionnalités (pool de stabilité, multispend, codes d’invitation, nouveaux membres, portefeuille hors ligne et dépôts onchain)
-
-Une modification prend effet lorsqu’un nombre suffisant de guardians de la fédération utilisent la version 0.1.7 ou ultérieure.
+Commit obrazu: 0d1472e844111fd5eed2a7f61d3eda92b74e03f3. Fedimint: 0.12.0-fedi15.`,
+    fr_FR: `Cette version corrige la configuration du guardian. Avec 0.1.6 et 0.1.7, un guardian nouveau ou restauré pouvait rester bloqué sur « Vérification de l’approbation de cet hôte… » sans moyen de continuer. L’étape de configuration affiche maintenant un bouton « Check status » dans cet état.
 
 Aucune étape particulière n’est nécessaire pour mettre à jour une installation standard.
 
-Commit de l’image : 108c8318dab0536b2402206382f3e2c19f27189a. Fedimint : 0.12.0-fedi15.`,
+Commit de l’image : 0d1472e844111fd5eed2a7f61d3eda92b74e03f3. Fedimint : 0.12.0-fedi15.`,
   },
   migrations: {
     up: async ({ effects }) => {},
