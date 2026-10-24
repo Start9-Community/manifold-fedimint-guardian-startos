@@ -32,7 +32,7 @@ Manifold Fedimint Guardian is the Fleet Manager daemon from [fedibtc/manifold](h
 
 ## Image and Container Runtime
 
-The package runs upstream's `ghcr.io/fedibtc/manifold-fman` image, pinned by digest, for x86_64 and aarch64. The `Dockerfile` flattens the upstream filesystem into a scratch image to avoid absolute Nix layer paths rejected by start-cli 2.4.0. It adds `/etc/passwd`, `/etc/group`, and `/etc/nsswitch.conf`, which the minimal Nix image lacks, and the `/proc`, `/sys`, and `/dev` mount points StartOS needs. The image configuration uses upstream's stable symlinks for the CA bundle (`/etc/ssl/certs/ca-bundle.crt`) and entrypoint (`/usr/local/bin/fleet-manager-entrypoint`); their Nix store targets differ by architecture.
+The package runs upstream's `ghcr.io/fedibtc/manifold-fman` image, pinned by digest, for x86_64 and aarch64. The `Dockerfile` flattens the upstream filesystem into a scratch image to avoid absolute Nix layer paths rejected by start-cli 2.4.0. It adds `/etc/passwd`, `/etc/group`, and `/etc/nsswitch.conf`, which the minimal Nix image lacks, and the `/proc`, `/sys`, and `/dev` mount points StartOS needs. `SSL_CERT_FILE` points at `/etc/ssl/certs/ca-certificates.crt`, a current Alpine CA bundle the build copies in, rather than upstream's Nix `cacert`, a temporary repoint that comes out once upstream's `cacert` no longer trusts the eMudhra roots. The entrypoint is upstream's stable symlink (`/usr/local/bin/fleet-manager-entrypoint`); its Nix store target differs by architecture.
 
 One subcontainer, `fman-sub`, runs `/bin/fleet-manager serve` directly rather than the image's entrypoint script, with the same arguments that script would build. Each seat's guardian is a `fedimintd` child process of that daemon inside the same subcontainer. `RUST_LOG` is set to `info`; without it the daemon inherits StartOS's `warn` level and logs almost nothing.
 
@@ -124,7 +124,7 @@ Upstream supports one running instance per identity: restore onto a server that 
 
 ```yaml
 package_id: manifold-fedimint-guardian
-image: ghcr.io/fedibtc/manifold-fman
+image: ghcr.io/fedibtc/manifold-fman + root Dockerfile (temporary Alpine CA bundle)
 architectures: [x86_64, aarch64]
 subcontainers: [fman-sub]
 volumes:
