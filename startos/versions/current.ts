@@ -1,33 +1,33 @@
 import { IMPOSSIBLE, VersionInfo } from '@start9labs/start-sdk'
 
 export const current = VersionInfo.of({
-  version: '0.1.13:0',
+  version: '0.1.15:0',
   releaseNotes: {
-    en_US: `This release lowers the memory and disk use of guardian seats that restart often, and keeps more of their diagnostic history.
+    en_US: `This release updates Fedimint to 0.12.0-fedi28 and adds diagnostics that help find memory, network and disk problems in guardian seats. It also adds metrics on the health of federation consensus.
 
 You do not need to do anything special to update.
 
-Image commit: 8865f67304c2b558055c9ebc53cc529ad5e812ac. Fedimint: 0.12.0-fedi25.`,
-    es_ES: `Esta versión reduce la memoria y el disco que usan los puestos de guardian que se reinician a menudo, y conserva más de su historial de diagnóstico.
+Image commit: bb5fe29eee54256e78d2f678b0eca5975bbb98fb. Fedimint: 0.12.0-fedi28.`,
+    es_ES: `Esta versión actualiza Fedimint a 0.12.0-fedi28 y añade diagnósticos que ayudan a encontrar problemas de memoria, red y disco en los puestos de guardian. También añade métricas sobre la salud del consenso de la federación.
 
 No necesitas hacer nada especial para actualizar.
 
-Commit de la imagen: 8865f67304c2b558055c9ebc53cc529ad5e812ac. Fedimint: 0.12.0-fedi25.`,
-    de_DE: `Diese Version senkt den Speicher- und Plattenbedarf von Guardian-Plätzen, die oft neu starten, und behält mehr von ihrem Diagnoseverlauf.
+Commit de la imagen: bb5fe29eee54256e78d2f678b0eca5975bbb98fb. Fedimint: 0.12.0-fedi28.`,
+    de_DE: `Diese Version aktualisiert Fedimint auf 0.12.0-fedi28 und fügt Diagnosen hinzu, die helfen, Speicher-, Netzwerk- und Plattenprobleme der Guardian-Plätze zu finden. Außerdem fügt sie Metriken zum Zustand des Föderationskonsenses hinzu.
 
 Für das Update musst du nichts Besonderes tun.
 
-Image-Commit: 8865f67304c2b558055c9ebc53cc529ad5e812ac. Fedimint: 0.12.0-fedi25.`,
-    pl_PL: `To wydanie zmniejsza użycie pamięci i dysku przez miejsca guardianów, które często się restartują, i zachowuje więcej ich historii diagnostycznej.
+Image-Commit: bb5fe29eee54256e78d2f678b0eca5975bbb98fb. Fedimint: 0.12.0-fedi28.`,
+    pl_PL: `To wydanie aktualizuje Fedimint do 0.12.0-fedi28 i dodaje diagnostykę, która pomaga znaleźć problemy z pamięcią, siecią i dyskiem w miejscach guardianów. Dodaje też metryki stanu konsensusu federacji.
 
 Aktualizacja nie wymaga żadnych dodatkowych czynności.
 
-Commit obrazu: 8865f67304c2b558055c9ebc53cc529ad5e812ac. Fedimint: 0.12.0-fedi25.`,
-    fr_FR: `Cette version réduit la mémoire et le disque utilisés par les places de guardian qui redémarrent souvent, et conserve davantage de leur historique de diagnostic.
+Commit obrazu: bb5fe29eee54256e78d2f678b0eca5975bbb98fb. Fedimint: 0.12.0-fedi28.`,
+    fr_FR: `Cette version met à jour Fedimint vers 0.12.0-fedi28 et ajoute des diagnostics qui aident à trouver les problèmes de mémoire, de réseau et de disque des places de guardian. Elle ajoute aussi des métriques sur la santé du consensus de la fédération.
 
 Vous n’avez rien de particulier à faire pour mettre à jour.
 
-Commit de l’image : 8865f67304c2b558055c9ebc53cc529ad5e812ac. Fedimint : 0.12.0-fedi25.`,
+Commit de l’image : bb5fe29eee54256e78d2f678b0eca5975bbb98fb. Fedimint : 0.12.0-fedi28.`,
   },
   migrations: {
     up: async ({ effects }) => {},
