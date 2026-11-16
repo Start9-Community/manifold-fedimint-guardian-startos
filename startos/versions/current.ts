@@ -1,33 +1,33 @@
 import { IMPOSSIBLE, VersionInfo } from '@start9labs/start-sdk'
 
 export const current = VersionInfo.of({
-  version: '0.1.15:0',
+  version: '0.1.16:0',
   releaseNotes: {
-    en_US: `This release updates Fedimint to 0.12.0-fedi28 and adds diagnostics that help find memory, network and disk problems in guardian seats. It also adds metrics on the health of federation consensus.
+    en_US: `This release gives the guardian better control over when it sells new seats. It stops selling new seats while this machine is too busy (CPU, disk or memory). Seats that are already running are not affected, and this does not count against uptime. If your internet plan has a monthly data cap, you can set a monthly data limit, and the guardian then sells no more seats than fit in it. At first start, it runs a one-time CPU check of about 13 seconds.
 
-You do not need to do anything special to update.
+There are no configuration changes. The first start after the update takes about 13 seconds longer. The Health page asks whether your internet plan has a monthly data limit; if it has none, choose “No monthly limit”.
 
-Image commit: bb5fe29eee54256e78d2f678b0eca5975bbb98fb. Fedimint: 0.12.0-fedi28.`,
-    es_ES: `Esta versión actualiza Fedimint a 0.12.0-fedi28 y añade diagnósticos que ayudan a encontrar problemas de memoria, red y disco en los puestos de guardian. También añade métricas sobre la salud del consenso de la federación.
+Image commit: bcd879de33c0109ad15ff9a5c8e4f42fdfcbb8af. Fedimint: 0.12.0-fedi28.`,
+    es_ES: `Esta versión da al guardian más control sobre cuándo vende nuevos puestos. Deja de vender nuevos puestos mientras esta máquina está demasiado ocupada (CPU, disco o memoria). Los puestos que ya están en marcha no se ven afectados, y esto no cuenta en contra del tiempo de actividad. Si tu plan de internet tiene un límite mensual de datos, puedes indicar un límite mensual de datos, y el guardian no venderá más puestos de los que caben en él. En el primer arranque, hace una única prueba de CPU de unos 13 segundos.
 
-No necesitas hacer nada especial para actualizar.
+No hay cambios de configuración. El primer arranque después de actualizar tarda unos 13 segundos más. La página Health pregunta si tu plan de internet tiene un límite mensual de datos; si no lo tiene, elige “No monthly limit”.
 
-Commit de la imagen: bb5fe29eee54256e78d2f678b0eca5975bbb98fb. Fedimint: 0.12.0-fedi28.`,
-    de_DE: `Diese Version aktualisiert Fedimint auf 0.12.0-fedi28 und fügt Diagnosen hinzu, die helfen, Speicher-, Netzwerk- und Plattenprobleme der Guardian-Plätze zu finden. Außerdem fügt sie Metriken zum Zustand des Föderationskonsenses hinzu.
+Commit de la imagen: bcd879de33c0109ad15ff9a5c8e4f42fdfcbb8af. Fedimint: 0.12.0-fedi28.`,
+    de_DE: `Diese Version gibt dem Guardian mehr Kontrolle darüber, wann er neue Plätze verkauft. Er verkauft keine neuen Plätze, solange dieser Rechner zu stark ausgelastet ist (CPU, Platte oder Speicher). Bereits laufende Plätze sind nicht betroffen, und das zählt nicht gegen die Verfügbarkeit. Wenn dein Internettarif ein monatliches Datenlimit hat, kannst du ein monatliches Datenlimit angeben, und der Guardian verkauft dann nicht mehr Plätze, als hineinpassen. Beim ersten Start führt er einmalig eine CPU-Prüfung von etwa 13 Sekunden durch.
 
-Für das Update musst du nichts Besonderes tun.
+Es gibt keine Konfigurationsänderungen. Der erste Start nach dem Update dauert etwa 13 Sekunden länger. Die Seite Health fragt, ob dein Internettarif ein monatliches Datenlimit hat; wenn nicht, wähle „No monthly limit“.
 
-Image-Commit: bb5fe29eee54256e78d2f678b0eca5975bbb98fb. Fedimint: 0.12.0-fedi28.`,
-    pl_PL: `To wydanie aktualizuje Fedimint do 0.12.0-fedi28 i dodaje diagnostykę, która pomaga znaleźć problemy z pamięcią, siecią i dyskiem w miejscach guardianów. Dodaje też metryki stanu konsensusu federacji.
+Image-Commit: bcd879de33c0109ad15ff9a5c8e4f42fdfcbb8af. Fedimint: 0.12.0-fedi28.`,
+    pl_PL: `To wydanie daje guardianowi większą kontrolę nad tym, kiedy sprzedaje nowe miejsca. Przestaje sprzedawać nowe miejsca, gdy ta maszyna jest zbyt obciążona (procesor, dysk lub pamięć). Już działające miejsca nie są tym objęte i nie obniża to wyniku dostępności. Jeśli twój plan internetowy ma miesięczny limit danych, możesz ustawić miesięczny limit danych, a guardian nie sprzeda wtedy więcej miejsc, niż się w nim mieści. Przy pierwszym uruchomieniu wykonuje jednorazowy test procesora trwający około 13 sekund.
 
-Aktualizacja nie wymaga żadnych dodatkowych czynności.
+Nie ma zmian w konfiguracji. Pierwsze uruchomienie po aktualizacji trwa około 13 sekund dłużej. Strona Health pyta, czy twój plan internetowy ma miesięczny limit danych; jeśli nie ma, wybierz „No monthly limit”.
 
-Commit obrazu: bb5fe29eee54256e78d2f678b0eca5975bbb98fb. Fedimint: 0.12.0-fedi28.`,
-    fr_FR: `Cette version met à jour Fedimint vers 0.12.0-fedi28 et ajoute des diagnostics qui aident à trouver les problèmes de mémoire, de réseau et de disque des places de guardian. Elle ajoute aussi des métriques sur la santé du consensus de la fédération.
+Commit obrazu: bcd879de33c0109ad15ff9a5c8e4f42fdfcbb8af. Fedimint: 0.12.0-fedi28.`,
+    fr_FR: `Cette version donne au guardian plus de contrôle sur le moment où il vend de nouvelles places. Il cesse de vendre de nouvelles places tant que cette machine est trop occupée (processeur, disque ou mémoire). Les places déjà en service ne sont pas concernées, et cela ne compte pas contre la disponibilité. Si votre forfait internet a un plafond mensuel de données, vous pouvez indiquer une limite mensuelle de données, et le guardian ne vend alors pas plus de places qu’elle n’en permet. Au premier démarrage, il effectue une vérification unique du processeur d’environ 13 secondes.
 
-Vous n’avez rien de particulier à faire pour mettre à jour.
+Il n’y a aucun changement de configuration. Le premier démarrage après la mise à jour prend environ 13 secondes de plus. La page Health demande si votre forfait internet a une limite mensuelle de données ; s’il n’en a pas, choisissez « No monthly limit ».
 
-Commit de l’image : bb5fe29eee54256e78d2f678b0eca5975bbb98fb. Fedimint : 0.12.0-fedi28.`,
+Commit de l’image : bcd879de33c0109ad15ff9a5c8e4f42fdfcbb8af. Fedimint : 0.12.0-fedi28.`,
   },
   migrations: {
     up: async ({ effects }) => {},
