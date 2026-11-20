@@ -22,6 +22,27 @@ export const main = sdk.setupMain(async ({ effects }) => {
   fs.writeFileSync(passwordVolumePath, `${password}\n`, { mode: 0o600 })
   fs.chmodSync(passwordVolumePath, 0o600)
 
+  // An older Bitcoin lacks the public volume, and mounting a missing volume fails the start.
+  const hasRpcVolume = await sdk
+    .getServiceManifest(effects, 'bitcoind', (m) =>
+      m?.volumes.includes(rpcVolumeId),
+    )
+    .const()
+  if (hasRpcVolume === false) {
+    return sdk.Daemons.of(effects).addHealthCheck('bitcoin', {
+      ready: {
+        display: i18n('Bitcoin Connection'),
+        trigger: sdk.trigger.onceTrigger,
+        gracePeriod: 0,
+        fn: () => ({
+          result: 'failure',
+          message: i18n('Update Bitcoin so the guardian can connect to it'),
+        }),
+      },
+      requires: [],
+    })
+  }
+
   const mounts = sdk.Mounts.of()
     .mountVolume({
       volumeId: 'main',

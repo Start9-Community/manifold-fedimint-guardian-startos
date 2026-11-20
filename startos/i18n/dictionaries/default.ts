@@ -17,6 +17,8 @@ const dict = {
   'Direct iroh connections to guardian seats (first 8 seats)': 13,
   'Local Bitcoin supplies the mainnet chain.': 14,
   Bitcoin: 15,
+  'Bitcoin Connection': 16,
+  'Update Bitcoin so the guardian can connect to it': 17,
 } as const
 
 export type I18nKey = keyof typeof dict

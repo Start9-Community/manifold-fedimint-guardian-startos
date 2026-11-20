@@ -18,6 +18,8 @@ export default {
     13: 'Conexiones iroh directas a los puestos de guardián (primeros 8 puestos)',
     14: 'El Bitcoin local proporciona la cadena de mainnet.',
     15: 'Bitcoin',
+    16: 'Conexión con Bitcoin',
+    17: 'Actualiza Bitcoin para que el guardián pueda conectarse a él',
   },
   de_DE: {
     0: 'Dashboard-Passwort festlegen',
@@ -36,6 +38,8 @@ export default {
     13: 'Direkte iroh-Verbindungen zu den Guardian-Plätzen (erste 8 Plätze)',
     14: 'Der lokale Bitcoin-Dienst stellt die Mainnet-Blockchain bereit.',
     15: 'Bitcoin',
+    16: 'Bitcoin-Verbindung',
+    17: 'Aktualisiere Bitcoin, damit sich der Guardian damit verbinden kann',
   },
   pl_PL: {
     0: 'Ustaw hasło panelu',
@@ -54,6 +58,8 @@ export default {
     13: 'Bezpośrednie połączenia iroh z miejscami strażników (pierwsze 8 miejsc)',
     14: 'Lokalna usługa Bitcoin udostępnia łańcuch mainnet.',
     15: 'Bitcoin',
+    16: 'Połączenie z Bitcoinem',
+    17: 'Zaktualizuj Bitcoin, aby strażnik mógł się z nim połączyć',
   },
   fr_FR: {
     0: 'Définir le mot de passe du tableau de bord',
@@ -72,5 +78,7 @@ export default {
     13: 'Connexions iroh directes aux places de gardien (8 premières places)',
     14: 'Le service Bitcoin local fournit la chaîne mainnet.',
     15: 'Bitcoin',
+    16: 'Connexion à Bitcoin',
+    17: 'Mettez Bitcoin à jour pour que le gardien puisse s’y connecter',
   },
 } satisfies Record<string, LangDict>

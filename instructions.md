@@ -6,7 +6,7 @@
 
 ## Getting set up
 
-1. Install and start Bitcoin if it is not already running.
+1. Install and start Bitcoin if it is not already running. If the guardian's **Bitcoin Connection** check later asks you to update Bitcoin, install Bitcoin's update; the guardian starts on its own once it is done.
 2. Run **Set Dashboard Password** and save the password it gives you.
 3. Start Manifold Fedimint Guardian and open **Operator Dashboard**.
 4. Sign in with your dashboard password, then follow the guardian setup guide to authorize your guardian and complete setup.

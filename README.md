@@ -99,9 +99,11 @@ The service is held on one task until a dashboard password exists.
 
 ## Health Checks
 
-One check, on the daemon.
+One check, on the daemon, unless Bitcoin needs updating.
 
 - **Operator Dashboard** (`fman`) — passes when port 8181 is listening, with the SDK's default timing. It does not reflect onboarding progress, federation health, or Bitcoin sync. A failure that persists means the daemon exited: read the logs. A daemon that never started at all is usually the Bitcoin errors under [Dependencies](#dependencies).
+
+While the installed Bitcoin is too old to publish its `public` volume, the package mounts nothing from it and runs no daemon: a lone `bitcoin` check, "Bitcoin Connection", fails and asks for Bitcoin to be updated. The installed manifest is watched, so updating Bitcoin starts the guardian normally.
 
 ## Backups and Restore
 
