@@ -40,10 +40,10 @@ One subcontainer, `fman-sub`, runs `/bin/fleet-manager serve` directly rather th
 
 All of the service's state is on one volume.
 
-| Volume           | Mount point    | Contents                                                                                                                                                                           |
-| ---------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `main`           | `/data`        | Fleet SQLite database, identity and recovery phrase, payment wallets, `seats/<n>/` guardian directories, `safe-events/` journals, `admin.sock`, `store.json`, `.operator-password` |
-| Bitcoin's `main` | `/mnt/bitcoin` | Read-only; only its `.cookie` is read                                                                                                                                              |
+| Volume             | Mount point    | Contents                                                                                                                                                                           |
+| ------------------ | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `main`             | `/data`        | Fleet SQLite database, identity and recovery phrase, payment wallets, `seats/<n>/` guardian directories, `safe-events/` journals, `admin.sock`, `store.json`, `.operator-password` |
+| Bitcoin's `public` | `/mnt/bitcoin` | Read-only; holds only the RPC `.cookie` Bitcoin publishes for dependents                                                                                                           |
 
 ## File Models
 
@@ -58,7 +58,7 @@ The daemon reads `.operator-password` only at startup.
 
 ## Dependencies
 
-Bitcoin is required and should be running, synced, and healthy (`bitcoind`, `sync-progress`). The package resolves Bitcoin's RPC address over the StartOS bridge and authenticates with the `.cookie` from Bitcoin's volume, mounted read-only. It changes nothing in Bitcoin's configuration. When Bitcoin writes a new cookie the service restarts to pick it up.
+Bitcoin is required and should be running, synced, and healthy (`bitcoind`, `sync-progress`). The package resolves Bitcoin's RPC address over the StartOS bridge and authenticates with the `.cookie` from Bitcoin's `public` volume, mounted read-only — the volume Bitcoin publishes credentials on for dependents, without its chain data or configuration. It changes nothing in Bitcoin's configuration. When Bitcoin writes a new cookie the service restarts to pick it up.
 
 The service refuses to start, with "Local Bitcoin is not reachable." or "Local Bitcoin RPC credentials are unavailable.", while Bitcoin is not installed or has not yet written its cookie.
 

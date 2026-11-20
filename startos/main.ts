@@ -2,9 +2,10 @@ import * as fs from 'fs'
 import { FileHelper } from '@start9labs/start-sdk'
 import { manifest as bitcoinManifest } from 'bitcoin-core-startos/startos/manifest'
 import {
-  rpccookiefile,
+  rpcCookieName,
   rpcHostId,
   rpcPort,
+  rpcVolumeId,
 } from 'bitcoin-core-startos/startos/utils'
 import { storeJson } from './fileModels/store'
 import { i18n } from './i18n'
@@ -30,7 +31,7 @@ export const main = sdk.setupMain(async ({ effects }) => {
     })
     .mountDependency<typeof bitcoinManifest>({
       dependencyId: 'bitcoind',
-      volumeId: 'main',
+      volumeId: rpcVolumeId,
       subpath: null,
       mountpoint: '/mnt/bitcoin',
       readonly: true,
@@ -52,7 +53,7 @@ export const main = sdk.setupMain(async ({ effects }) => {
   if (!address) throw new Error(i18n('Local Bitcoin is not reachable.'))
   const rootfs = await sub.rootfs
   const cookie = await FileHelper.string(
-    `${rootfs}/mnt/bitcoin/${rpccookiefile}`,
+    `${rootfs}/mnt/bitcoin/${rpcCookieName}`,
   )
     .read(
       (value) => value?.trim(),
