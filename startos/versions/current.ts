@@ -1,43 +1,53 @@
 import { IMPOSSIBLE, VersionInfo } from '@start9labs/start-sdk'
 
 export const current = VersionInfo.of({
-  version: '0.1.17:0',
+  version: '0.1.18:0',
   releaseNotes: {
-    en_US: `This release fixes a problem where the guardian could lose its relay connection and stay disconnected until it was restarted. While disconnected, it failed its readiness checks and stopped selling new seats. It now reconnects on its own.
+    en_US: `Your guardian now reports figures about its federation to the Federation Ambassador who runs it: the bitcoin the federation holds, how many wallets were active in the last 30 days, and its Lightning and on-chain payment volume. The Ambassador combines the reports from all guardians. Fedimint 0.12.0-fedi29 adds the volume counting.
 
-The guardian also sells no more seats than its data drive can hold, at about 80 GB per seat: 6 seats on a 512 GB drive and 12 on a 1 TB drive. The Offer page shows this limit under Seat capacity. Seats that are already running are not affected.
+The Overview and Payouts pages no longer stay stuck loading while a payment wallet is recovering. They now say the wallet is recovering. The Overview page also invites you to set up mobile notifications when they are available.
 
-There are no configuration changes, and you do not need to do anything special to update.
+The temporary uptime reset added in 0.1.17 is removed.
 
-Image commit: 87c5ca2f9fecbe8943662e1f96cd19a1eb6f8b48. Fedimint: 0.12.0-fedi28.`,
-    es_ES: `Esta versión corrige un problema por el que el guardian podía perder su conexión con el relay y quedarse desconectado hasta que se reiniciaba. Mientras estaba desconectado, fallaban sus comprobaciones de disponibilidad y dejaba de vender nuevos puestos. Ahora se vuelve a conectar por sí solo.
+There are no configuration changes. The guardian adds two new database tables on its first start, and you do not need to do anything.
 
-El guardian tampoco vende más puestos de los que caben en su disco de datos, a unos 80 GB por puesto: 6 puestos en un disco de 512 GB y 12 en uno de 1 TB. La página Offer muestra este límite en Seat capacity. Los puestos que ya están en marcha no se ven afectados.
+Image commit: 520189cfd333e3a94435ac7c7668443395aa2efa. Fedimint: 0.12.0-fedi29.`,
+    es_ES: `Tu guardian ahora informa de datos sobre su federación al Federation Ambassador que la gestiona: el bitcoin que custodia la federación, cuántos monederos estuvieron activos en los últimos 30 días y su volumen de pagos Lightning y on-chain. El Ambassador combina los informes de todos los guardians. Fedimint 0.12.0-fedi29 añade el recuento del volumen.
 
-No hay cambios de configuración y no necesitas hacer nada especial para actualizar.
+Las páginas Overview y Payouts ya no se quedan cargando mientras un monedero de pagos se está recuperando. Ahora indican que el monedero se está recuperando. La página Overview también te invita a configurar las notificaciones móviles cuando están disponibles.
 
-Commit de la imagen: 87c5ca2f9fecbe8943662e1f96cd19a1eb6f8b48. Fedimint: 0.12.0-fedi28.`,
-    de_DE: `Diese Version behebt ein Problem, durch das der Guardian seine Relay-Verbindung verlieren und bis zu einem Neustart getrennt bleiben konnte. Solange er getrennt war, schlugen seine Bereitschaftsprüfungen fehl und er verkaufte keine neuen Plätze. Jetzt verbindet er sich von selbst wieder.
+Se elimina el reinicio temporal del uptime añadido en 0.1.17.
 
-Außerdem verkauft der Guardian nicht mehr Plätze, als auf sein Datenlaufwerk passen, bei etwa 80 GB pro Platz: 6 Plätze auf einem 512-GB-Laufwerk und 12 auf einem 1-TB-Laufwerk. Die Seite Offer zeigt dieses Limit unter Seat capacity. Bereits laufende Plätze sind nicht betroffen.
+No hay cambios de configuración. El guardian añade dos tablas nuevas a su base de datos en el primer arranque, y no necesitas hacer nada.
 
-Es gibt keine Konfigurationsänderungen, und für das Update musst du nichts Besonderes tun.
+Commit de la imagen: 520189cfd333e3a94435ac7c7668443395aa2efa. Fedimint: 0.12.0-fedi29.`,
+    de_DE: `Dein Guardian meldet jetzt Kennzahlen seiner Föderation an den Federation Ambassador, der sie betreut: die Bitcoin, die die Föderation verwahrt, wie viele Wallets in den letzten 30 Tagen aktiv waren, und ihr Lightning- und On-Chain-Zahlungsvolumen. Der Ambassador fasst die Meldungen aller Guardians zusammen. Fedimint 0.12.0-fedi29 ergänzt die Zählung des Volumens.
 
-Image-Commit: 87c5ca2f9fecbe8943662e1f96cd19a1eb6f8b48. Fedimint: 0.12.0-fedi28.`,
-    pl_PL: `To wydanie naprawia problem, przez który guardian mógł stracić połączenie z relayem i pozostawać rozłączony aż do ponownego uruchomienia. Podczas rozłączenia jego testy gotowości kończyły się błędem i przestawał sprzedawać nowe miejsca. Teraz łączy się ponownie sam.
+Die Seiten Overview und Payouts bleiben nicht mehr beim Laden hängen, während eine Zahlungs-Wallet wiederhergestellt wird. Sie zeigen jetzt an, dass die Wallet wiederhergestellt wird. Die Seite Overview lädt dich außerdem ein, Mobile-Benachrichtigungen einzurichten, sobald sie verfügbar sind.
 
-Guardian nie sprzedaje też więcej miejsc, niż zmieści jego dysk z danymi, przy około 80 GB na miejsce: 6 miejsc na dysku 512 GB i 12 na dysku 1 TB. Strona Offer pokazuje ten limit w sekcji Seat capacity. Już działające miejsca nie są tym objęte.
+Das vorübergehende Zurücksetzen der Uptime aus 0.1.17 wurde entfernt.
 
-Nie ma zmian w konfiguracji, a aktualizacja nie wymaga żadnych dodatkowych czynności.
+Es gibt keine Konfigurationsänderungen. Der Guardian legt beim ersten Start zwei neue Datenbanktabellen an, und du musst nichts tun.
 
-Commit obrazu: 87c5ca2f9fecbe8943662e1f96cd19a1eb6f8b48. Fedimint: 0.12.0-fedi28.`,
-    fr_FR: `Cette version corrige un problème qui pouvait faire perdre au guardian sa connexion au relais, et le laisser déconnecté jusqu’à son redémarrage. Pendant ce temps, ses vérifications de disponibilité échouaient et il cessait de vendre de nouvelles places. Il se reconnecte maintenant tout seul.
+Image-Commit: 520189cfd333e3a94435ac7c7668443395aa2efa. Fedimint: 0.12.0-fedi29.`,
+    pl_PL: `Twój guardian przekazuje teraz dane o swojej federacji Federation Ambassadorowi, który nią zarządza: ile bitcoinów przechowuje federacja, ile portfeli było aktywnych w ciągu ostatnich 30 dni oraz jaki jest jej wolumen płatności Lightning i on-chain. Ambassador łączy raporty wszystkich guardianów. Fedimint 0.12.0-fedi29 dodaje zliczanie wolumenu.
 
-Le guardian ne vend plus non plus de places au-delà de ce que son disque de données peut contenir, à environ 80 Go par place : 6 places sur un disque de 512 Go et 12 sur un disque de 1 To. La page Offer affiche cette limite sous Seat capacity. Les places déjà en service ne sont pas concernées.
+Strony Overview i Payouts nie zatrzymują się już na ładowaniu, gdy portfel płatności jest odzyskiwany. Teraz informują, że portfel jest w trakcie odzyskiwania. Strona Overview zachęca też do skonfigurowania powiadomień mobilnych, gdy są dostępne.
 
-Il n’y a aucun changement de configuration, et vous n’avez rien de particulier à faire pour mettre à jour.
+Usunięto tymczasowy reset uptime dodany w 0.1.17.
 
-Commit de l’image : 87c5ca2f9fecbe8943662e1f96cd19a1eb6f8b48. Fedimint : 0.12.0-fedi28.`,
+Nie ma zmian w konfiguracji. Przy pierwszym uruchomieniu guardian dodaje dwie nowe tabele do bazy danych i nie musisz nic robić.
+
+Commit obrazu: 520189cfd333e3a94435ac7c7668443395aa2efa. Fedimint: 0.12.0-fedi29.`,
+    fr_FR: `Votre guardian transmet désormais des chiffres sur sa fédération au Federation Ambassador qui la gère : les bitcoins détenus par la fédération, le nombre de portefeuilles actifs au cours des 30 derniers jours, et son volume de paiements Lightning et on-chain. L’Ambassador combine les rapports de tous les guardians. Fedimint 0.12.0-fedi29 ajoute le comptage du volume.
+
+Les pages Overview et Payouts ne restent plus bloquées en chargement pendant la récupération d’un portefeuille de paiement. Elles indiquent maintenant que le portefeuille est en cours de récupération. La page Overview vous invite aussi à configurer les notifications mobiles lorsqu’elles sont disponibles.
+
+La réinitialisation temporaire de l’uptime ajoutée en 0.1.17 est supprimée.
+
+Il n’y a aucun changement de configuration. Le guardian ajoute deux nouvelles tables à sa base de données au premier démarrage, et vous n’avez rien à faire.
+
+Commit de l’image : 520189cfd333e3a94435ac7c7668443395aa2efa. Fedimint : 0.12.0-fedi29.`,
   },
   migrations: {
     up: async ({ effects }) => {},
