@@ -32,6 +32,8 @@ export const main = sdk.setupMain(async ({ effects }) => {
     return sdk.Daemons.of(effects).addHealthCheck('bitcoin', {
       ready: {
         display: i18n('Bitcoin Connection'),
+        trigger: sdk.trigger.onceTrigger,
+        gracePeriod: 0,
         fn: () => ({
           result: 'failure',
           message: i18n('Update Bitcoin so the guardian can connect to it'),
