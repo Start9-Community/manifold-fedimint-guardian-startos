@@ -1,53 +1,53 @@
 import { IMPOSSIBLE, VersionInfo } from '@start9labs/start-sdk'
 
 export const current = VersionInfo.of({
-  version: '0.1.19:0',
+  version: '0.1.20:0',
   releaseNotes: {
-    en_US: `Each guardian seat now writes much less to disk, which makes your SSD last longer. Fedimint 0.12.0-fedi30 saves each consensus round's data in one write instead of one write per message, and it reuses its log files instead of creating new ones. Running seats keep working with guardians on older versions, and nothing about your data changes.
+    en_US: `The guardian now stops selling new seats while its own consensus is slow. It measures how long its seats take to order consensus items, and when the 6-hour average is over 5 seconds, the Health page shows the Consensus speed check as failing and no new seats are sold. Running seats are not affected, and this does not count against uptime.
 
-The guardian also trusts the new production PeerBadge issuer.
+On a btrfs drive, which StartOS uses, the guardian now reserves 160 GB of disk per new seat instead of 80 GB, because btrfs wears SSDs faster. Seats that are already running are not affected.
 
-This version needs a recent Bitcoin package (Bitcoin Core 28.4:42, 29.5:4, 30.4:4 or 31.2:4, or Knots 29.3:33). With an older one, the guardian waits and asks you to update Bitcoin.
+It also fixes a memory leak that made some guardians use more and more memory over time, and it retries joining a payment federation that failed instead of waiting for a restart.
 
-There are no configuration changes, and you do not need to do anything special to update.
+There are no configuration changes. The guardian adds one database table on its first start, and you do not need to do anything.
 
-Image commit: 46eac0df8013c272ba032ee96ea2376b8f2910c3. Fedimint: 0.12.0-fedi30.`,
-    es_ES: `Cada puesto de guardian escribe ahora mucho menos en el disco, lo que alarga la vida de tu SSD. Fedimint 0.12.0-fedi30 guarda los datos de cada ronda de consenso en una sola escritura en lugar de una por mensaje, y reutiliza sus archivos de registro en lugar de crear otros nuevos. Los puestos en marcha siguen funcionando con guardians en versiones anteriores, y tus datos no cambian.
+Image commit: d5bb8092b8f8717cc4ef65f7bd7a201ebc0dce91. Fedimint: 0.12.0-fedi30.`,
+    es_ES: `El guardian deja ahora de vender puestos nuevos mientras su propio consenso va lento. Mide cuánto tardan sus puestos en ordenar los elementos de consenso y, cuando la media de 6 horas supera los 5 segundos, la página Health muestra la comprobación Consensus speed como fallida y no se venden puestos nuevos. Los puestos en marcha no se ven afectados, y esto no cuenta en contra del uptime.
 
-El guardian también confía en el nuevo emisor de PeerBadge de producción.
+En un disco btrfs, el que usa StartOS, el guardian reserva ahora 160 GB de disco por puesto nuevo en lugar de 80 GB, porque btrfs desgasta los SSD más rápido. Los puestos que ya están en marcha no se ven afectados.
 
-Esta versión necesita un paquete de Bitcoin reciente (Bitcoin Core 28.4:42, 29.5:4, 30.4:4 o 31.2:4, o Knots 29.3:33). Con uno más antiguo, el guardian espera y te pide que actualices Bitcoin.
+También corrige una fuga de memoria que hacía que algunos guardians usaran cada vez más memoria, y reintenta unirse a una federación de pagos que falló en lugar de esperar a un reinicio.
 
-No hay cambios de configuración y no necesitas hacer nada especial para actualizar.
+No hay cambios de configuración. El guardian añade una tabla a su base de datos en el primer arranque, y no necesitas hacer nada.
 
-Commit de la imagen: 46eac0df8013c272ba032ee96ea2376b8f2910c3. Fedimint: 0.12.0-fedi30.`,
-    de_DE: `Jeder Guardian-Platz schreibt jetzt viel weniger auf die Festplatte, was die Lebensdauer deiner SSD verlängert. Fedimint 0.12.0-fedi30 speichert die Daten jeder Konsensrunde in einem einzigen Schreibvorgang statt einem pro Nachricht und verwendet seine Logdateien wieder, statt neue anzulegen. Laufende Plätze arbeiten weiter mit Guardians auf älteren Versionen zusammen, und an deinen Daten ändert sich nichts.
+Commit de la imagen: d5bb8092b8f8717cc4ef65f7bd7a201ebc0dce91. Fedimint: 0.12.0-fedi30.`,
+    de_DE: `Der Guardian verkauft jetzt keine neuen Plätze mehr, solange sein eigener Konsens langsam ist. Er misst, wie lange seine Plätze brauchen, um Konsenselemente zu ordnen, und wenn der 6-Stunden-Durchschnitt über 5 Sekunden liegt, zeigt die Seite Health die Prüfung Consensus speed als fehlgeschlagen und es werden keine neuen Plätze verkauft. Laufende Plätze sind nicht betroffen, und das zählt nicht gegen die Uptime.
 
-Der Guardian vertraut außerdem dem neuen PeerBadge-Aussteller für die Produktion.
+Auf einem btrfs-Laufwerk, wie es StartOS verwendet, reserviert der Guardian jetzt 160 GB Speicher pro neuem Platz statt 80 GB, weil btrfs SSDs schneller abnutzt. Bereits laufende Plätze sind nicht betroffen.
 
-Diese Version braucht ein aktuelles Bitcoin-Paket (Bitcoin Core 28.4:42, 29.5:4, 30.4:4 oder 31.2:4, oder Knots 29.3:33). Mit einem älteren wartet der Guardian und bittet dich, Bitcoin zu aktualisieren.
+Außerdem behebt die Version ein Speicherleck, durch das manche Guardians mit der Zeit immer mehr Arbeitsspeicher belegten, und sie versucht den Beitritt zu einer Zahlungsföderation erneut, wenn er fehlgeschlagen ist, statt auf einen Neustart zu warten.
 
-Es gibt keine Konfigurationsänderungen, und für das Update musst du nichts Besonderes tun.
+Es gibt keine Konfigurationsänderungen. Der Guardian legt beim ersten Start eine Datenbanktabelle an, und du musst nichts tun.
 
-Image-Commit: 46eac0df8013c272ba032ee96ea2376b8f2910c3. Fedimint: 0.12.0-fedi30.`,
-    pl_PL: `Każde miejsce guardiana zapisuje teraz na dysk znacznie mniej, co wydłuża życie Twojego dysku SSD. Fedimint 0.12.0-fedi30 zapisuje dane każdej rundy konsensusu jednym zapisem zamiast jednego na wiadomość i ponownie używa swoich plików dziennika zamiast tworzyć nowe. Działające miejsca nadal współpracują z guardianami w starszych wersjach, a Twoje dane się nie zmieniają.
+Image-Commit: d5bb8092b8f8717cc4ef65f7bd7a201ebc0dce91. Fedimint: 0.12.0-fedi30.`,
+    pl_PL: `Guardian przestaje teraz sprzedawać nowe miejsca, gdy jego własny konsensus działa wolno. Mierzy, ile czasu jego miejscom zajmuje porządkowanie elementów konsensusu, a gdy średnia z 6 godzin przekracza 5 sekund, strona Health pokazuje test Consensus speed jako nieudany i nowe miejsca nie są sprzedawane. Działające miejsca nie są tym objęte, a nie wpływa to na uptime.
 
-Guardian ufa też nowemu produkcyjnemu wystawcy PeerBadge.
+Na dysku btrfs, którego używa StartOS, guardian rezerwuje teraz 160 GB miejsca na każde nowe miejsce zamiast 80 GB, ponieważ btrfs szybciej zużywa dyski SSD. Już działające miejsca nie są tym objęte.
 
-Ta wersja wymaga aktualnego pakietu Bitcoin (Bitcoin Core 28.4:42, 29.5:4, 30.4:4 lub 31.2:4 albo Knots 29.3:33). Ze starszym guardian czeka i prosi o aktualizację Bitcoina.
+Wydanie naprawia też wyciek pamięci, przez który niektóre guardiany z czasem zużywały coraz więcej pamięci, a nieudane dołączenie do federacji płatności jest ponawiane zamiast czekać na ponowne uruchomienie.
 
-Nie ma zmian w konfiguracji, a aktualizacja nie wymaga żadnych dodatkowych czynności.
+Nie ma zmian w konfiguracji. Przy pierwszym uruchomieniu guardian dodaje jedną tabelę do bazy danych i nie musisz nic robić.
 
-Commit obrazu: 46eac0df8013c272ba032ee96ea2376b8f2910c3. Fedimint: 0.12.0-fedi30.`,
-    fr_FR: `Chaque place de guardian écrit désormais beaucoup moins sur le disque, ce qui prolonge la durée de vie de votre SSD. Fedimint 0.12.0-fedi30 enregistre les données de chaque tour de consensus en une seule écriture au lieu d’une par message, et réutilise ses fichiers journaux au lieu d’en créer de nouveaux. Les places en service continuent de fonctionner avec des guardians sur des versions plus anciennes, et vos données ne changent pas.
+Commit obrazu: d5bb8092b8f8717cc4ef65f7bd7a201ebc0dce91. Fedimint: 0.12.0-fedi30.`,
+    fr_FR: `Le guardian arrête désormais de vendre de nouvelles places tant que son propre consensus est lent. Il mesure le temps que mettent ses places à ordonner les éléments de consensus et, quand la moyenne sur 6 heures dépasse 5 secondes, la page Health affiche la vérification Consensus speed en échec et aucune nouvelle place n’est vendue. Les places en service ne sont pas concernées, et cela ne compte pas contre l’uptime.
 
-Le guardian fait aussi confiance au nouvel émetteur PeerBadge de production.
+Sur un disque btrfs, celui qu’utilise StartOS, le guardian réserve maintenant 160 Go de disque par nouvelle place au lieu de 80 Go, car btrfs use les SSD plus vite. Les places déjà en service ne sont pas concernées.
 
-Cette version nécessite un paquet Bitcoin récent (Bitcoin Core 28.4:42, 29.5:4, 30.4:4 ou 31.2:4, ou Knots 29.3:33). Avec un paquet plus ancien, le guardian attend et vous invite à mettre Bitcoin à jour.
+Cette version corrige aussi une fuite de mémoire qui faisait consommer de plus en plus de mémoire à certains guardians, et elle réessaie de rejoindre une fédération de paiement en cas d’échec au lieu d’attendre un redémarrage.
 
-Il n’y a aucun changement de configuration, et vous n’avez rien de particulier à faire pour mettre à jour.
+Il n’y a aucun changement de configuration. Le guardian ajoute une table à sa base de données au premier démarrage, et vous n’avez rien à faire.
 
-Commit de l’image : 46eac0df8013c272ba032ee96ea2376b8f2910c3. Fedimint : 0.12.0-fedi30.`,
+Commit de l’image : d5bb8092b8f8717cc4ef65f7bd7a201ebc0dce91. Fedimint : 0.12.0-fedi30.`,
   },
   migrations: {
     up: async ({ effects }) => {},
